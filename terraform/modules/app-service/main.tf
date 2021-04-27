@@ -7,7 +7,7 @@ resource "azurerm_app_service_plan" "application" {
 
   kind     = "Windows"
 #  kind     = "Linux"
-  reserved = true
+  reserved = false
 
   tags = {
     "environment" = var.environment
