@@ -5,9 +5,10 @@ resource "azurerm_app_service_plan" "application" {
   resource_group_name = var.resource_group
   location            = var.location
 
-  kind     = "Windows"
-#  kind     = "Linux"
-  reserved = false
+#  kind     = "Windows"
+#  reserved = false
+  kind     = "Linux"
+  reserved = true
 
   tags = {
     "environment" = var.environment
@@ -32,7 +33,7 @@ resource "azurerm_app_service" "application" {
   }
 
   site_config {
-#    linux_fx_version = "NODE|14-lts"
+    linux_fx_version = "NODE|14-lts"
     app_command_line = "npm run start:prod"
     always_on        = true
     ftps_state       = "FtpsOnly"
